@@ -68,6 +68,6 @@ public class CustomerBusiness implements IOrderBusiness{
 
     @Override
     public double getTotalRevenue() {
-        return IOrderBusiness.super.getTotalRevenue();
+        return orders.stream().mapToDouble(Order::getTotalAmount).sum();
     }
 }
